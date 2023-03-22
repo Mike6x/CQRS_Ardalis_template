@@ -61,5 +61,16 @@ namespace WebApi.Controllers.V1
             }
             return Ok(await Mediator.Send(command));
         }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateRange(UpdateProductsCommand command)
+        {
+            if (command.Entities == null)
+            {
+                return BadRequest();
+            }
+            return Ok(await Mediator.Send(command));
+        }
+
     }
 }
